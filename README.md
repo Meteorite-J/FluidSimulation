@@ -1,1 +1,1 @@
-# 3D Real-time Fluid Simulation
+# 3D Real-time Liquid Simulation
