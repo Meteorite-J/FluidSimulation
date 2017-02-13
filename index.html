@@ -6,6 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <title>Liquid</title>
+        
+        <!-- Import Cormorant Garamond from Google Fonts -->
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cormorant+Garamond">
+        <style>
+          body {
+            font-family: "Cormorant Garamond";
+            font-style: normal;
+          }
+        </style>
+        <link rel="stylesheet" type="text/css" href="liquid.css"/>
     </head>
 
     <body>
@@ -53,10 +63,35 @@
                 <span>Scroll</span> to zoom in and out <br/>
                 <span>Move mouse</span> to push particles
             </div>
+
+            <div id="footer">
+               <a href="http://david.li">david.li</a> | <a href="https://youtu.be/DhNt_A3k4B4">Video</a> | <a href="https://github.com/dli/fluid">Code</a>  
+            </div>
+        </script>
+
+        <script type="text/template" id="no-support">
+            <div id="container">
+                <div id="error"></div>
+                <div id="video">You can still view a video.<br/>
+                    <iframe width="854" height="480" style="margin-top: 7px;" src="https://www.youtube.com/embed/DhNt_A3k4B4" frameborder="0" allowfullscreen></iframe> 
+                </div>
+                <div id="linkback"><a href="http://david.li">david.li</a></div>
+            </div>
         </script>
 
 
         <div id="placeholder"></div>
+
+        
+        <script src="wrappedgl.js"></script>
+        <script src="utilities.js"></script>
+        <script src="camera.js"></script>
+        <script src="boxeditor.js"></script>
+        <script src="simulator.js"></script>
+        <script src="renderer.js"></script>
+        <script src="simulatorrenderer.js"></script>
+        <script src="slider.js"></script>
+        <script src="fluidparticles.js"></script>
 
         <script>
             function concatenateWords (list) {
@@ -75,6 +110,19 @@
                     return result;
                 }
             }
+            WrappedGL.checkWebGLSupportWithExtensions(['ANGLE_instanced_arrays', 'WEBGL_depth_texture', 'OES_texture_float', 'OES_texture_float_linear', 'OES_texture_half_float', 'OES_texture_half_float_linear'],
+                function () { //we have webgl
+                    document.getElementById('placeholder').outerHTML = document.getElementById('main').innerHTML;
+                    var fluidBox = new FluidParticles();
+                }, function (hasWebGL, unsupportedExtensions) {
+                    document.getElementById('placeholder').outerHTML = document.getElementById('no-support').innerHTML;
+                    if (!hasWebGL) { //webgl not supported
+                        document.getElementById('error').textContent = 'Unfortunately, your browser does not support WebGL';
+                    } else {
+                        document.getElementById('error').textContent = 'Unfortunately, your browser does not support the ' + concatenateWords(unsupportedExtensions) + " WebGL extension" + (unsupportedExtensions.length > 1 ? 's.' : '.');
+                    }
+                }
+            );
         </script>
     </body>
 
