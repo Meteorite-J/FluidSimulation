@@ -11,5 +11,7 @@ PIC/FLIP is a particle based method. It is similar to the Smoothed Particle Hydr
 ## References
 
 Animating Sand as a Fluid - Zhu, Bridson
+
 Fluid Simulation for Computer Graphics - Robert Bridson
+
 [Mozilla WebGL Guide](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
