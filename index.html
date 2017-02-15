@@ -110,14 +110,17 @@
                 }
             }
             WrappedGL.checkWebGLSupportWithExtensions(['ANGLE_instanced_arrays', 'WEBGL_depth_texture', 'OES_texture_float', 'OES_texture_float_linear', 'OES_texture_half_float', 'OES_texture_half_float_linear'],
-                function () { //we have webgl
+                function () {
+                    // WebGL found.
                     document.getElementById('placeholder').outerHTML = document.getElementById('main').innerHTML;
-                    var fluidBox = new FluidParticles();
+                    // var fluidBox = new FluidParticles();
                 }, function (hasWebGL, unsupportedExtensions) {
                     document.getElementById('placeholder').outerHTML = document.getElementById('no-support').innerHTML;
-                    if (!hasWebGL) { //webgl not supported
+                    // WebGL not supported.
+                    if (!hasWebGL) {
                         document.getElementById('error').textContent = 'Unfortunately, your browser does not support WebGL';
                     } else {
+                    // Some extensions in WebGL not supported.
                         document.getElementById('error').textContent = 'Unfortunately, your browser does not support the ' + concatenateWords(unsupportedExtensions) + " WebGL extension" + (unsupportedExtensions.length > 1 ? 's.' : '.');
                     }
                 }
