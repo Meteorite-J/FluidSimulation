@@ -10,106 +10,87 @@ body {
 }
 
 #start-button {
-    font-size: 16px;
     color: white;
+    font-size: 16px;
     font-weight: bold;
-
-    margin-bottom: 15px;
-
-    width: 120px;
     height: 40px;
     line-height: 40px;
-
-    text-align: center;
-
+    margin-bottom: 20px;
     pointer-events: auto;
+    text-align: center;
+    width: 100px;
 }
 
 .start-button-active {
+    background: rgb(136, 208, 250);
     cursor: default;
-    background: rgb(70, 190, 60);
 }
 
 .start-button-active:hover {
-    background: rgb(60, 180, 50);
+    background: rgb(136, 220, 248);
 }
 
 .start-button-active:active {
-    background: rgb(50, 170, 40);
+    background: rgb(136, 180, 250);
 }
 
 .start-button-inactive {
-    background: #999999;
+    background: rgb(192, 192, 192);
     cursor: default;
 }
 
 #preset-button {
-    margin-bottom: 10px;
-
-    background: rgba(80, 160, 230, 1.0);
-
+    background: rgb(236, 236, 112);
+    color: white;
+    cursor: default;
     font-size: 12px;
     font-weight: bold;
-    color: white;
-
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-
-    text-align: center;
-
-    cursor: default;
-
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
     pointer-events: auto;
+    text-align: center;
+    width: 100px;
 }
 
 #preset-button:hover {
-    background: rgba(70, 150, 220, 1.0);
+    background: rgb(242, 240, 128);
 }
 
 #preset-button:active {
-    background: rgba(60, 140, 210, 1.0);
+    background: rgb(252, 252, 118);
 }
 
 #ui {
-    position: absolute;
-
+    left: 40px;
     pointer-events: none;
-
+    position: absolute;
     top: 30px;
-    left: 30px;
 }
 
 #particle-count {
-    color: #777777;
-
+    color: rgb(68, 68, 68);
     font-size: 12px;
-
     margin-top: 4px;
 }
 
 .slider-label {
-    color: #555555;
+    color: rgb(99, 99, 99);
     font-size: 12px;
     font-weight: bold;
-
     margin-top: 5px;
 }
 
 .slider {
-    margin-top: 4px;
-
-    width: 200px;
-    height: 22px;
-
-    user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-
     background: rgba(0, 0, 0, 0.1);
-
+    height: 24px;
+    margin-top: 4px;
     pointer-events: auto;
+    user-select: none;
+    width: 200px;
 }
 
 .slider:hover {
@@ -117,42 +98,31 @@ body {
 }
 
 .slider div {
-    background: #666666;
+    background: rgb(102, 102, 102);
 }
 
 .slider:hover div {
-    background: #555555;
+    background: rgb(84, 84, 84);
 }
 
 .instructions {
-    position: absolute;
-
     bottom: 30px;
-    left: 30px;
-
-    font-size: 12px;
-    line-height: 16px;
-
     color: #555555;
-
+    font-size: 12px;
+    left: 30px;
+    line-height: 16px;
     margin-top: 20px;
+    position: absolute;
 }
 
 .instructions span {
+    color: rgb(68, 68, 68);
     font-weight: bold;
-
-    color: #444444;
-}
-
-#footer a {
-    text-decoration: underline;
-    color: #555555;
 }
 
 #container {
-    color: #333333;
-    font-size: 14px;
-
+    color: rgb(48, 48, 48);
+    font-size: 16px;
     margin-top: 40px;
     margin-left: 40px;
 }
