@@ -37,7 +37,7 @@ var Driver = (function () {
             this.redrawUI(); 
         }).bind(this));
 
-        this.engine = new Engine.Engine(this.canvas, this.wgl, this.projectionMatrix, this.camera, [GRID_WIDTH, GRID_HEIGHT, GRID_DEPTH], (function () {
+        this.engine = new Engine(this.canvas, this.wgl, this.projectionMatrix, this.camera, [GRID_WIDTH, GRID_HEIGHT, GRID_DEPTH], (function () {
             engineLoaded = true;
             if (boxEditorLoaded && engineLoaded) {
                 start.call(this);
