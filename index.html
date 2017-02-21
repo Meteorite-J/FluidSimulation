@@ -84,7 +84,7 @@
 
         <script src="js/liquid.boxeditor.js"></script>
         <script src="js/liquid.camera.js"></script>
-        <script src="js/liquid.particles.js"></script>
+        <script src="js/liquid.driver.js"></script>
         <script src="js/liquid.renderer.js"></script>
         <script src="js/liquid.simulator.js"></script>
         <script src="js/liquid.simulatorrenderer.js"></script>
@@ -113,7 +113,7 @@
                 function () {
                     // WebGL found.
                     document.getElementById('placeholder').outerHTML = document.getElementById('main').innerHTML;
-                    // var fluidBox = new FluidParticles();
+                    var driver = new Driver();
                 }, function (hasWebGL, unsupportedExtensions) {
                     document.getElementById('placeholder').outerHTML = document.getElementById('no-support').innerHTML;
                     // WebGL not supported.
