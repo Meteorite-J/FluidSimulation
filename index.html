@@ -65,6 +65,11 @@
             </div>
         </script>
 
+        <script type="text/template" id="webgl-unsupported">
+            <div id="container">
+                <div id="error"></div>
+            </div>
+        </script>
 
         <div id="placeholder"></div>
 
@@ -101,10 +106,10 @@
                     document.getElementById('placeholder').outerHTML = document.getElementById('main').innerHTML;
                     var driver = new Driver();
                 }, function (hasWebGL, unsupportedExtensions) {
-                    document.getElementById('placeholder').outerHTML = document.getElementById('no-support').innerHTML;
+                    document.getElementById('placeholder').outerHTML = document.getElementById('webgl-unsupported').innerHTML;
                     // WebGL not supported.
                     if (!hasWebGL) {
-                        document.getElementById('error').textContent = 'Unfortunately, your browser does not support WebGL';
+                        document.getElementById('error').textContent = 'Unfortunately, your browser does not support WebGL.';
                     } else {
                     // Some extensions in WebGL not supported.
                         document.getElementById('error').textContent = 'Unfortunately, your browser does not support the ' + concatenateWords(unsupportedExtensions) + " WebGL extension" + (unsupportedExtensions.length > 1 ? 's.' : '.');
