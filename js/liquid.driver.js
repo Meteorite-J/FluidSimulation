@@ -25,11 +25,11 @@ var Driver = (function () {
         this.camera = new Camera(this.canvas, [GRID_WIDTH / 2, GRID_HEIGHT / 3, GRID_DEPTH / 2]);
 
         var boxEditorLoaded = false,
-            simulatorRendererLoaded = false;
+            engineLoaded = false;
 
         this.boxEditor = new BoxEditor.BoxEditor(this.canvas, this.wgl, this.projectionMatrix, this.camera, [GRID_WIDTH, GRID_HEIGHT, GRID_DEPTH], (function () {
             boxEditorLoaded = true;
-            if (boxEditorLoaded && simulatorRendererLoaded) {
+            if (boxEditorLoaded && engineLoaded) {
                 start.call(this);
             }
         }).bind(this),
@@ -37,9 +37,9 @@ var Driver = (function () {
             this.redrawUI(); 
         }).bind(this));
 
-        this.simulatorRenderer = new SimulatorRenderer(this.canvas, this.wgl, this.projectionMatrix, this.camera, [GRID_WIDTH, GRID_HEIGHT, GRID_DEPTH], (function () {
-            simulatorRendererLoaded = true;
-            if (boxEditorLoaded && simulatorRendererLoaded) {
+        this.engine = new Engine(this.canvas, this.wgl, this.projectionMatrix, this.camera, [GRID_WIDTH, GRID_HEIGHT, GRID_DEPTH], (function () {
+            engineLoaded = true;
+            if (boxEditorLoaded && engineLoaded) {
                 start.call(this);
             }
         }).bind(this));
@@ -113,8 +113,8 @@ var Driver = (function () {
                 this.redrawUI();
             }).bind(this));
 
-            this.flipnessSlider = new Slider(document.getElementById('fluidity-slider'), this.simulatorRenderer.simulator.flipness, 0.5, 0.99, (function (value) {
-                this.simulatorRenderer.simulator.flipness = value;
+            this.flipnessSlider = new Slider(document.getElementById('fluidity-slider'), this.engine.simulator.flipness, 0.5, 0.99, (function (value) {
+                this.engine.simulator.flipness = value;
             }).bind(this));
 
             this.speedSlider = new Slider(document.getElementById('speed-slider'), this.timeStep, 0.0, 1.0 / 60.0, (function (value) {
@@ -162,7 +162,7 @@ var Driver = (function () {
         this.canvas.height = window.innerHeight;
         Utilities.makePerspectiveMatrix(this.projectionMatrix, FOV, this.canvas.width / this.canvas.height, 0.1, 100.0);
 
-        this.simulatorRenderer.onResize(event);
+        this.engine.onResize(event);
     }
 
     Driver.prototype.onMouseMove = function (event) {
@@ -175,7 +175,7 @@ var Driver = (function () {
                 this.editedSinceLastPreset = true;
             }
         } else if (this.state === State.SIMULATING) {
-            this.simulatorRenderer.onMouseMove(event);
+            this.engine.onMouseMove(event);
         }
     };
 
@@ -185,7 +185,7 @@ var Driver = (function () {
         if (this.state === State.EDITING) {
             this.boxEditor.onMouseDown(event);
         } else if (this.state === State.SIMULATING) {
-            this.simulatorRenderer.onMouseDown(event);
+            this.engine.onMouseDown(event);
         }
     };
 
@@ -195,7 +195,7 @@ var Driver = (function () {
         if (this.state === State.EDITING) {
             this.boxEditor.onMouseUp(event);
         } else if (this.state === State.SIMULATING) {
-            this.simulatorRenderer.onMouseUp(event);
+            this.engine.onMouseUp(event);
         }
     };
 
@@ -348,7 +348,7 @@ var Driver = (function () {
         var gridResolution = [gridResolutionX, gridResolutionY, gridResolutionZ];
 
         var sphereRadius = 7.0 / gridResolutionX;
-        this.simulatorRenderer.reset(particlesWidth, particlesHeight, particlePositions, gridSize, gridResolution, PARTICLES_PER_CELL, sphereRadius);
+        this.engine.reset(particlesWidth, particlesHeight, particlePositions, gridSize, gridResolution, PARTICLES_PER_CELL, sphereRadius);
 
         this.camera.setBounds(0, Math.PI / 2);
     }
@@ -367,7 +367,7 @@ var Driver = (function () {
         if (this.state === State.EDITING) {
             this.boxEditor.draw();
         } else if (this.state === State.SIMULATING) {
-            this.simulatorRenderer.update(this.timeStep);
+            this.engine.update(this.timeStep);
         }
     }
 
