@@ -33,7 +33,7 @@ var Engine = (function() {
             this.mouseX = 0;
             this.mouseY = 0;
 
-            //the mouse plane is a plane centered at the camera orbit point and orthogonal to the view direction
+            // The mouse plane is a plane centered at the camera orbit point and orthogonal to the view direction.
             this.lastMousePlaneX = 0;
             this.lastMousePlaneY = 0;
 
