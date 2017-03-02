@@ -203,8 +203,8 @@ var Renderer = (function () {
                 fragmentShader: 'shaders/spheroid.frag'
             },
             sphereDepthProgram: {
-                vertexShader: 'shaders/spheredepth.vert',
-                fragmentShader: 'shaders/spheredepth.frag'
+                vertexShader: 'shaders/spheroidD.vert',
+                fragmentShader: 'shaders/spheroidD.frag'
             },
             sphereAOProgram: {
                 vertexShader: 'shaders/spheroidAO.vert',
