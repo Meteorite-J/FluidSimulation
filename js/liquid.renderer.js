@@ -207,8 +207,8 @@ var Renderer = (function () {
                 fragmentShader: 'shaders/spheredepth.frag'
             },
             sphereAOProgram: {
-                vertexShader: 'shaders/sphereao.vert',
-                fragmentShader: 'shaders/sphereao.frag'
+                vertexShader: 'shaders/spheroidAO.vert',
+                fragmentShader: 'shaders/spheroidAO.frag'
             },
             compositeProgram: {
                 vertexShader: 'shaders/fullscreen.vert',
