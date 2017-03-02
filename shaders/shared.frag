@@ -30,8 +30,8 @@ vec4 texture3D(sampler2D texture, vec3 coordinates, vec3 resolution) {
     return mix(texture2D(texture, belowCoordinates), texture2D(texture, aboveCoordinates), fraction);
 }
 
-vec4 texture3DNearest(sampler2D texture, vec3 coordinates, vec3 resolution) { //clamps the z coordinate
-    vec3 fullCoordinates = coordinates * resolution; //in [(0, 0, 0), (resolution.x, resolution.y, resolutionz)] 
+vec4 texture3DNearest(sampler2D texture, vec3 coordinates, vec3 resolution) { // Clamps the z coordinate.
+    vec3 fullCoordinates = coordinates * resolution; // In [(0, 0, 0), (resolution.x, resolution.y, resolutionz)].
 
     fullCoordinates = clamp(fullCoordinates, vec3(0.5), vec3(resolution - 0.5));
 
