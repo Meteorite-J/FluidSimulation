@@ -199,8 +199,8 @@ var Renderer = (function () {
 
         wgl.createProgramsFromFiles({
             sphereProgram: {
-                vertexShader: 'shaders/sphere.vert',
-                fragmentShader: 'shaders/sphere.frag'
+                vertexShader: 'shaders/spheroid.vert',
+                fragmentShader: 'shaders/spheroid.frag'
             },
             sphereDepthProgram: {
                 vertexShader: 'shaders/spheredepth.vert',
