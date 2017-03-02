@@ -657,7 +657,7 @@ var WrappedGL = (function() {
         }
 
 
-        //now we set all of the new incoming states
+        // Now, we set all of the new incoming states.
 
         for (var parameterName in state.changedParameters) {
             if (state.changedParameters.hasOwnProperty(parameterName)) {
@@ -1042,8 +1042,10 @@ var WrappedGL = (function() {
         return shader;
     };
 
-    //we don't have to specify any or all attribute location bindings
-    //any unspecified bindings will be assigned automatically and can be queried with program.getAttribLocation(attributeName)
+    /**
+     * We don't have to specify any or all attribute location bindings.
+     * Any unspecified bindings will be assigned automatically and can be queried with program.getAttribLocation(attributeName).
+     */
     function WrappedProgram(wgl, vertexShaderSource, fragmentShaderSource, requestedAttributeLocations) {
         this.uniformLocations = {};
 
@@ -1448,8 +1450,6 @@ var WrappedGL = (function() {
         this.setParameter('framebuffer', [framebuffer]);
         return this;
     };
-
-
 
     return WrappedGL;
 
