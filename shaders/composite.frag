@@ -72,6 +72,4 @@ void main () {
         vec3 backgroundColor = vec3(1.0) - length(v_coordinates * 2.0 - 1.0) * 0.1;
         gl_FragColor = vec4(backgroundColor, 1.0);
     }
-
-    gl_FragColor = vec4(texture2D(u_shadowDepthTexture, v_coordinates).rrr, 1.0);
 }
