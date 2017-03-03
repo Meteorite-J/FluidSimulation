@@ -103,7 +103,7 @@ var Driver = (function () {
             // Parameters/Sliders.
 
             // Using gridCellDensity ensures a linear relationship to particle count.
-            this.gridCellDensity = 0.5; // Simulation grid cell density per world space unit volume.
+            this.gridCellDensity = 0.9; // Simulation grid cell density per world space unit volume.
 
             this.timeStep = 1.0 / 60.0;
 
