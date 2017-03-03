@@ -15,3 +15,5 @@ Animating Sand as a Fluid - Zhu, Bridson
 Fluid Simulation for Computer Graphics - Robert Bridson
 
 [Mozilla WebGL Guide](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API)
+
+[GLSL Tutorial](http://www.lighthouse3d.com/tutorials/glsl-tutorial/)
